@@ -24,6 +24,28 @@ node_modules
 !.vscode/launch.json
 !.vscode/extensions.json
 
+# System Files
+.DS_Store
+Thumbs.db
+
+.nx/cache
+.nx/workspace-data
+
+# Next.js
+.next
+out
+
+# Secrets
+.env*.local
+*.pem
+
+# sst
+.sst
+.build
+
+# opennext
+.open-next
+
 # misc
 /.sass-cache
 /connect.lock
@@ -33,10 +55,5 @@ npm-debug.log
 yarn-error.log
 testem.log
 /typings
-
-# System Files
-.DS_Store
-Thumbs.db
-
-.nx/cache
-.nx/workspace-data
+.pnpm-store
+certificates

@@ -2,5 +2,14 @@
   "extends": "./tsconfig.base.json",
   "compileOnSave": false,
   "files": [],
-  "references": []
+  "exclude": [
+    "node_modules",
+    "tmp",
+    "dist",
+    ".nx",
+    ".open-next",
+    "@types",
+    ".sst",
+    ".next"
+  ]
 }

@@ -1,0 +1,52 @@
+{
+  "name": "website",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/website",
+  "projectType": "application",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project website --web",
+  "targets": {
+    "dev": {
+      "_comment": "Spins up SST to link resources then run the local Next app",
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "apps/website",
+        "commands": [
+          "sst dev"
+        ]
+      }
+    },
+    "next-start": {
+      "options": {
+        "cwd": "apps/website",
+        "commands": [
+          "next start"
+        ]
+      }
+    },
+    "build": {
+      "_comment": "Leverages Nx's Next build command and ensures output is at the root of the monorepo",
+      "executor": "nx:run-commands",
+      "dependsOn": [
+        "next-build"
+      ],
+      "cache": true,
+      "outputs": [
+        "{projectRoot}/.open-next"
+      ],
+      "options": {
+        "cwd": "{projectRoot}",
+        "command": "open-next build"
+      },
+      "configurations": {
+        "stage": {},
+        "prod": {}
+      }
+    },
+    "next-build": {},
+    "sst-unlock": {},
+    "sst-remove": {},
+    "sst-refresh": {},
+    "sst-secrets": {}
+  }
+}
